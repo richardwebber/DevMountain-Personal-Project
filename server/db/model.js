@@ -2,9 +2,10 @@ import { DataTypes, Model } from 'sequelize'
 import connectToDB from './db.js'
 import url from 'url'
 import util from 'util'
+import Sequelize from 'sequelize'
 
 
-const db = await connectToDB('postgress://store')
+const db = await connectToDB('postgres:///store')
 
 class Product extends Model {
     [util.inspect.custom]() {
@@ -64,7 +65,7 @@ class Image extends Model {
 
 Image.init(
     {
-        urlid: {
+        urlId: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
@@ -88,12 +89,12 @@ class User extends Model {
 
 User.init(
     {
-        userid: {
+        userId: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        username: {
+        userName: {
             type: DataTypes.STRING(40),
             allowNull: false
         },
@@ -119,3 +120,81 @@ User.init(
         sequelize: db
     }
 )
+
+
+class Order extends Model {
+    [util.inspect.custom]() {
+        return this.toJSON()
+    }
+}
+
+Order.init(
+    {
+       orderId: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+       },
+       status: {
+            type: DataTypes.ENUM('pending', 'processing', 'canceled', 'delivered'),
+            allowNull: false,
+            defaultValue: 'pending'
+       },
+       createAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+       },
+       updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+       }
+    },
+    {
+        modelName: 'order',
+        sequelize: db
+    }
+)
+
+
+class Ordereditem extends Model {
+    [util.inspect.custom]() {
+        return this.toJSON()
+    }
+}
+
+Ordereditem.init (
+    {
+        orderedId: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        quantity: {
+            type: DataTypes.INTEGER
+        },
+        cost: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0
+        }
+    },
+    {
+        modelName: 'ordereditem',
+        sequelize: db
+    }
+)
+
+
+Image.belongsTo(Product, { foreignKey: 'id'})
+Product.hasMany(Image, { foreignKey: 'id'})
+
+Order.belongsTo(User, { foreignKey: 'user_id' });
+User.hasMany(Order, { foreignKey: 'user_id' });
+
+// const mike = await User.create({userName: 'Mike Smith', email: 'mikesmith23@gmail.com', phone: '801-385-2127', password: '1234'})
+// const order32 = await Order.create({})
+
+
+
+await db.sync({ force: true });
