@@ -64,13 +64,58 @@ class Image extends Model {
 
 Image.init(
     {
-        id: {
+        urlid: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        productId: {
-
+        url: {
+            type: DataTypes.STRING
         }
+    },
+    {
+        modelName: 'image',
+        sequelize: db
+    }
+)
+
+
+class User extends Model {
+    [util.inspect.custom]() {
+        return this.toJSON()
+    }
+}
+
+User.init(
+    {
+        userid: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
+        username: {
+            type: DataTypes.STRING(40),
+            allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        phone: {
+            type: DataTypes.STRING
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        admin: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        }
+    },
+    {
+        modelName: 'user',
+        sequelize: db
     }
 )
