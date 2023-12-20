@@ -1,8 +1,7 @@
-import { DataTypes, Model } from 'sequelize'
+import { DataTypes, Model, Sequelize } from 'sequelize'
 import connectToDB from './db.js'
 import url from 'url'
 import util from 'util'
-import Sequelize from 'sequelize'
 
 
 const db = await connectToDB('postgres:///store')
@@ -22,28 +21,44 @@ Product.init(
         },
         name: {
             type: DataTypes.STRING(50),
-            allowNull: false,
-            unique: true
+            allowNull: true,
+            defaultValue: ''
 
         },
         description: {
-            type: DataTypes.STRING(200)
+            type: DataTypes.STRING(200),
+            allowNull: true,
+            defaultValue: ''
         },
         price: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true,
+            defaultValue: null
+        },
+        url: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue: ''
         },
         s: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            defaultValue: null
         },
         m: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            defaultValue: null
         },
         l: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            defaultValue: null
         },
         xl: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            defaultValue: null
         },
         sales: {
             type: DataTypes.INTEGER,
@@ -52,30 +67,6 @@ Product.init(
     },
     {
         modelName: 'product',
-        sequelize: db
-    }
-)
-
-
-class Image extends Model {
-    [util.inspect.custom]() {
-        return this.toJSON()
-    }
-}
-
-Image.init(
-    {
-        urlId: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        url: {
-            type: DataTypes.STRING
-        }
-    },
-    {
-        modelName: 'image',
         sequelize: db
     }
 )
@@ -122,13 +113,13 @@ User.init(
 )
 
 
-class Order extends Model {
+class Cart extends Model {
     [util.inspect.custom]() {
         return this.toJSON()
     }
 }
 
-Order.init(
+Cart.init(
     {
        orderId: {
             type: DataTypes.INTEGER,
@@ -152,49 +143,54 @@ Order.init(
        }
     },
     {
-        modelName: 'order',
+        modelName: 'cart',
         sequelize: db
     }
 )
 
 
-class Ordereditem extends Model {
+class Item extends Model {
     [util.inspect.custom]() {
         return this.toJSON()
     }
 }
 
-Ordereditem.init (
+Item.init (
     {
-        orderedId: {
+        itemId: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
         quantity: {
-            type: DataTypes.INTEGER
-        },
-        cost: {
             type: DataTypes.INTEGER,
+            allowNull: true,
             defaultValue: 0
         }
     },
     {
-        modelName: 'ordereditem',
+        modelName: 'item',
         sequelize: db
     }
 )
 
 
-Image.belongsTo(Product, { foreignKey: 'id'})
-Product.hasMany(Image, { foreignKey: 'id'})
+User.hasOne(Cart)
+Cart.belongsTo(User)
 
-Order.belongsTo(User, { foreignKey: 'user_id' });
-User.hasMany(Order, { foreignKey: 'user_id' });
-
-// const mike = await User.create({userName: 'Mike Smith', email: 'mikesmith23@gmail.com', phone: '801-385-2127', password: '1234'})
-// const order32 = await Order.create({})
-
+Cart.belongsToMany(Product, { through: Item })
+Product.belongsToMany(Cart, { through: Item })
 
 
 await db.sync({ force: true });
+
+
+const mike = await User.create({userName: 'Mike Smith', email: 'mikesmith23@gmail.com', phone: '801-385-2127', password: '1234'})
+const bill = await User.create({userName: 'Bill Collins', email: 'billboybaggins@gmail.com', phone: '801-333-2111', password: '2222'})
+const order32 = await Cart.create({status: 'pending'})
+const product1 = await Product.create({name: 'shirt', description: 'This is a shirt', price: 20.00, s: 25, m: 30, l: 40, xl: 25})
+
+
+
+
+export { Product, User, Cart, Item }
