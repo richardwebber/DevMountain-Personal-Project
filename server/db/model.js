@@ -85,20 +85,12 @@ User.init(
             autoIncrement: true,
             primaryKey: true
         },
-        userName: {
-            type: DataTypes.STRING(40),
-            allowNull: false
-        },
         email: {
             type: DataTypes.STRING,
             allowNull: false
         },
         phone: {
             type: DataTypes.STRING
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false
         },
         admin: {
             type: DataTypes.BOOLEAN,
@@ -113,73 +105,73 @@ User.init(
 )
 
 
-class Cart extends Model {
-    [util.inspect.custom]() {
-        return this.toJSON()
-    }
-}
+// class Cart extends Model {
+//     [util.inspect.custom]() {
+//         return this.toJSON()
+//     }
+// }
 
-Cart.init(
-    {
-       orderId: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
-       },
-       status: {
-            type: DataTypes.ENUM('pending', 'processing', 'canceled', 'delivered'),
-            allowNull: false,
-            defaultValue: 'pending'
-       },
-       createAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-       },
-       updatedAt: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-       }
-    },
-    {
-        modelName: 'cart',
-        sequelize: db
-    }
-)
-
-
-class Item extends Model {
-    [util.inspect.custom]() {
-        return this.toJSON()
-    }
-}
-
-Item.init (
-    {
-        itemId: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
-        },
-        quantity: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            defaultValue: 0
-        }
-    },
-    {
-        modelName: 'item',
-        sequelize: db
-    }
-)
+// Cart.init(
+//     {
+//        orderId: {
+//             type: DataTypes.INTEGER,
+//             autoIncrement: true,
+//             primaryKey: true
+//        },
+//        status: {
+//             type: DataTypes.ENUM('pending', 'processing', 'canceled', 'delivered'),
+//             allowNull: false,
+//             defaultValue: 'pending'
+//        },
+//        createAt: {
+//             type: DataTypes.DATE,
+//             allowNull: false,
+//             defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+//        },
+//        updatedAt: {
+//             type: DataTypes.DATE,
+//             allowNull: false,
+//             defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+//        }
+//     },
+//     {
+//         modelName: 'cart',
+//         sequelize: db
+//     }
+// )
 
 
-User.hasOne(Cart, { foreignKey: 'userId'})
-Cart.belongsTo(User, { foreignKey: 'userId'})
+// class Item extends Model {
+//     [util.inspect.custom]() {
+//         return this.toJSON()
+//     }
+// }
 
-Cart.belongsToMany(Item, { through: 'CartItem'})
-Item.belongsToMany(Cart, { through: 'CartItem' })
+// Item.init (
+//     {
+//         itemId: {
+//             type: DataTypes.INTEGER,
+//             autoIncrement: true,
+//             primaryKey: true
+//         },
+//         quantity: {
+//             type: DataTypes.INTEGER,
+//             allowNull: true,
+//             defaultValue: 0
+//         }
+//     },
+//     {
+//         modelName: 'item',
+//         sequelize: db
+//     }
+// )
+
+
+// User.hasOne(Cart, { foreignKey: 'userId'})
+// Cart.belongsTo(User, { foreignKey: 'userId'})
+
+// Cart.belongsToMany(Item, { through: 'CartItem'})
+// Item.belongsToMany(Cart, { through: 'CartItem' })
 
 
 await db.sync({ force: true });
@@ -193,4 +185,4 @@ await db.sync({ force: true });
 
 
 
-export { Product, User, Cart, Item }
+export { Product, User }
