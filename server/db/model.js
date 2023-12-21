@@ -173,8 +173,10 @@ User.init(
 // Cart.belongsToMany(Item, { through: 'CartItem'})
 // Item.belongsToMany(Cart, { through: 'CartItem' })
 
-
-await db.sync({ force: true });
+if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
+     console.log('Syncing database...');
+     await db.sync();     
+     console.log('Finished syncing database!');   }
 
 
 // const mike = await User.create({userName: 'Mike Smith', email: 'mikesmith23@gmail.com', phone: '801-385-2127', password: '1234'})
