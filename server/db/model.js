@@ -31,7 +31,7 @@ Product.init(
             defaultValue: ''
         },
         price: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL(10, 2),
             allowNull: true,
             defaultValue: null
         },
@@ -175,20 +175,20 @@ Item.init (
 )
 
 
-User.hasOne(Cart)
-Cart.belongsTo(User)
+User.hasOne(Cart, { foreignKey: 'userId'})
+Cart.belongsTo(User, { foreignKey: 'userId'})
 
-Cart.belongsToMany(Product, { through: Item })
-Product.belongsToMany(Cart, { through: Item })
+Cart.belongsToMany(Item, { through: 'CartItem'})
+Item.belongsToMany(Cart, { through: 'CartItem' })
 
 
 await db.sync({ force: true });
 
 
-const mike = await User.create({userName: 'Mike Smith', email: 'mikesmith23@gmail.com', phone: '801-385-2127', password: '1234'})
-const bill = await User.create({userName: 'Bill Collins', email: 'billboybaggins@gmail.com', phone: '801-333-2111', password: '2222'})
-const order32 = await Cart.create({status: 'pending'})
-const product1 = await Product.create({name: 'shirt', description: 'This is a shirt', price: 20.00, s: 25, m: 30, l: 40, xl: 25})
+// const mike = await User.create({userName: 'Mike Smith', email: 'mikesmith23@gmail.com', phone: '801-385-2127', password: '1234'})
+// const bill = await User.create({userName: 'Bill Collins', email: 'billboybaggins@gmail.com', phone: '801-333-2111', password: '2222'})
+// const order32 = await Cart.create({status: 'pending'})
+// const product1 = await Product.create({name: 'shirt', description: 'This is a shirt', price: 20.00, s: 25, m: 30, l: 40, xl: 25})
 
 
 
