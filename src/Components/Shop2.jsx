@@ -1,6 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap'
 
-export default function Shop() {
+function Shop() {
   return (
     <Container>
       
@@ -17,3 +17,5 @@ export default function Shop() {
     </Container>
   )
 }
+
+export default Shop

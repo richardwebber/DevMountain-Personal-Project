@@ -1,4 +1,4 @@
-import { Product, User, } from './model.js';
+import { Product } from './model.js';
 
 
 // const user1 = await User.create( {
