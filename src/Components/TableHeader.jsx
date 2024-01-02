@@ -4,7 +4,6 @@ const DivHeader = () => {
   return (
     <tr className="divHeader">
         <th></th>
-        <th></th>
         <th>Name</th>
         <th>Description</th>
         <th>Price</th>

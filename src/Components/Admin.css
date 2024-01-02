@@ -48,7 +48,7 @@
 
   .tdStyle {
     border: 1px solid #8B8B8B;
-    background-color: #404040;
+    background-color: #6F6F6F;
     border-radius: 2px;
   }
   
@@ -66,4 +66,3 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-

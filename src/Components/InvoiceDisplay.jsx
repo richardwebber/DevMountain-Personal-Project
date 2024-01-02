@@ -2,7 +2,7 @@ import axios from 'axios'
 import AddButton from './AddButton.jsx'
 import TableHeader from './TableHeader.jsx'
 import TableRow from './TableRow.jsx'
-import './Admin.css'
+// import './Admin.css'
 
 import { useState, useEffect } from 'react'
 

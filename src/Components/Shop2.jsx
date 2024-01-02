@@ -1,19 +1,34 @@
 import { Container, Row, Col } from 'react-bootstrap'
+import ProductCard from './ProductCard'
+import React from 'react'
+import axios from 'axios'
 
-function Shop() {
+import { useState, useEffect } from 'react'
+
+const Shop = () => {
+  const [currentData, setCurrentData] = useState([])
+
+    useEffect(() => {
+        axios.get('/products')
+        .then((res) => {
+            console.log(res.data)
+            setCurrentData(res.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }, [])
+
+    const cards = currentData.map((product) => <ProductCard
+    initialProductData={product}
+    key={product.id}
+    />)
+
   return (
     <Container>
-      
-      <Row>
-        <Col xs='9'>9 width</Col>
-        <Col xs='3'>3 width</Col>
-      </Row>
-
-      <Row>
-        <Col>Column</Col>
-        <Col xs='6'>6 width</Col>
-        <Col>Column</Col>
-      </Row>
+      <div>
+        {cards}
+      </div>
     </Container>
   )
 }
