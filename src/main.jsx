@@ -8,6 +8,7 @@ import Home from './Components/Home.jsx'
 import Shop from './Components/Shop2.jsx'
 import Archive from './Components/Archive.jsx'
 import Cart from './Components/Cart.jsx'
+import Admin from './Components/Admin.jsx'
 
 
 const router = createBrowserRouter(
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       <Route path='/shop' element={<Shop/>} />
       <Route path='/archive' element={<Archive/>} />
       <Route path='/cart' element={<Cart/>} /> 
+      <Route path='/admin' element={<Admin/>}/>
     </Route>
   )
 )
