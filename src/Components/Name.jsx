@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Name = (props) => {
-    const {isEditing, value, onValueChange} = props;
+    const {isEditing, value, onValueChange} = props
 
   return isEditing ? (
     <td>
