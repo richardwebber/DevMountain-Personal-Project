@@ -20,3 +20,4 @@ for (const i of allProducts) {
     await Product.create(i)
 }
 
+hjk
