@@ -1,9 +1,10 @@
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import ProductCard from './ProductCard'
 import React from 'react'
 import axios from 'axios'
-
 import { useState, useEffect } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import IndividualProductPage from './IndividualProductPage.jsx'
 
 const Shop = () => {
   const [currentData, setCurrentData] = useState([])
@@ -28,6 +29,15 @@ const Shop = () => {
     <Container>
       <div>
         {cards}
+        <Routes>
+          {currentData.map((product) => (
+            <Route
+            key={product.id}
+            path={`/${product.id}`}
+            element={<IndividualProductPage product={product} />}
+            />
+          ))}
+        </Routes>
       </div>
     </Container>
   )
