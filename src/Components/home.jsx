@@ -8,9 +8,7 @@ export default function Home() {
       
       <Row style={{ height: '500px'}}>
 
-        {/* <Col>
-        <Link to='/shop' className='nav-link'>Shop</Link>
-        </Col> */}
+  
         <Link to='/shop' className='nav-link'>
           <Col>Shop</Col>
         </Link>

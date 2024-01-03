@@ -19,7 +19,7 @@ export default function NavbarMain() {
     return (
         <Navbar expand='md' bg='dark' data-bs-theme='dark'>
             <Container fluid>
-                <Navbar.Brand href='#home' className='logo'>RAW</Navbar.Brand>
+                <Navbar.Brand href='/' className='logo'>RAW</Navbar.Brand>
                 <Navbar.Toggle aria-controls='basic-navbar-nav'/>
                 <Navbar.Collapse id='basic-navbar-nav'>
                     <Nav className='me-auto'>

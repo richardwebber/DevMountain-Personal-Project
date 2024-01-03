@@ -4,7 +4,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
-import Home from './Components/Home.jsx'
+import Home from './Components/home.jsx'
 import Shop from './Components/Shop2.jsx'
 import Archive from './Components/Archive.jsx'
 import Cart from './Components/Cart.jsx'
