@@ -50,80 +50,62 @@ const TableRow = (props) => {
     }
 
     return (
-        <tr className="row">
+        <tr>
             
-            <td>
             <ModeButton
             isEditing={editMode}
             changeEditMode={changeEditMode}
             changeNormalMode={changeNormalMode}
             deleteRow={deleteRow}
             />  
-            </td>
             
-            <td>
             <Name
             isEditing={editMode}
             value={name}
             onValueChange={setName}
             /> 
-            </td>
 
-            <td>
             <Description
             isEditing={editMode}
             value={description}
             onValueChange={setDescription}
             />
-            </td>
 
-            <td>
             <Price
             isEditing={editMode}
             value={price}
             onValueChange={setPrice}
             />
-            </td>
 
-            <td>
             <Url
             isEditing={editMode}
             value={url}
             onValueChange={setUrl}
             />
-            </td>
 
-            <td>
             <Small
             isEditing={editMode}
             value={small}
             onValueChange={setSmall}
             />
-            </td>
 
-            <td>
             <Medium
             isEditing={editMode}
             value={medium}
             onValueChange={setMedium}
             />
-            </td>
 
-            <td>
             <Large
             isEditing={editMode}
             value={large}
             onValueChange={setLarge}
             />
-            </td>
 
-            <td>
             <ExtraLarge
             isEditing={editMode}
             value={xl}
             onValueChange={setXl}
             />
-            </td>
 
         </tr>
     )

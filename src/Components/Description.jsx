@@ -6,7 +6,7 @@ const Description = (props) => {
     return isEditing ? (
         <td>
             <input 
-            type = "text"
+            type = 'text'
             value = {value}
             onchange = {(e) => onValueChange(e.target.value)}
             />
