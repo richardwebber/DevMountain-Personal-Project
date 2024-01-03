@@ -4,8 +4,9 @@
 }
 
 body {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color:rgb(213, 213, 213) ;
 }
 
 .container-fluid {
@@ -28,4 +29,14 @@ body {
   color: lightblue;
   font-family: 'Times New Roman', Times, serif;
   font-size:x-large;
+}
+
+footer {
+  background-color: #515151;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: rgb(203, 202, 202)
 }

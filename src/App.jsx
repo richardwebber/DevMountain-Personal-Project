@@ -6,7 +6,7 @@ export default function App() {
     return (
         <>
         <NavbarMain />
-        <Outlet />
+        <Outlet/>
         <Footer />
         </>
     )
