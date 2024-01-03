@@ -8,7 +8,7 @@ const Price = (props) => {
             <input 
             type = "text"
             value = {value}
-            onchange = {(e) => onValueChange(e.target.value)}
+            onChange = {(e) => onValueChange(e.target.value)}
             />
         </td>
     ) : (

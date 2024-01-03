@@ -25,7 +25,7 @@ const handlerFunctions = {
 
     editInventory: async(req, res) => {
         const { id } = req.params
-        const { name, description, price, url, s, m, l, xl, sales } = req.body
+        const { name, description, price, url, small, medium, large, xl, sales } = req.body
 
         // This does the same thing as the code below it. Insted of using .save, we are using .update.
         
@@ -39,9 +39,9 @@ const handlerFunctions = {
         editJob.description = description
         editJob.price = price
         editJob.url = url
-        editJob.s = s
-        editJob.m = m
-        editJob.l = l
+        editJob.s = small
+        editJob.m = medium
+        editJob.l = large
         editJob.xl = xl
         editJob.sales = sales
         

@@ -6,7 +6,7 @@ const Large = (props) => {
     return isEditing ? (
         <td>
             <input
-            type = 'text'
+            type = "text"
             value = {value}
             onChange = {(e) => onValueChange(e.target.value)}
             />
@@ -19,3 +19,4 @@ const Large = (props) => {
 }
 
 export default Large
+//test
