@@ -1,11 +1,12 @@
 import React from "react";
 
 const IndividualProductPage = ({ product }) => {
+    console.log('Rendering IndividualProductPage for: ', product.name)
     return (
         <div>
             <h2>{product.name}</h2>
             <p>{product.description}</p>
-        
+            
         </div>
     )
 }

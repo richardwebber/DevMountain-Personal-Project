@@ -7,8 +7,11 @@ const ProductCard = ({ initialProductData }) => {
   const navigate = useNavigate()
 
   const viewProduct = () => {
+    console.log('Navigate to:', `/shop/${initialProductData.id}`)
     navigate(`/shop/${initialProductData.id}`)
   }
+
+  console.log('Rendering ProductCard for: ', initialProductData.name)
 
   return (
     <Card style={{ width: '18rem', margin: 'auto' }}>
