@@ -3,12 +3,13 @@ import ProductCard from './ProductCard'
 import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Link, useParams } from 'react-router-dom'
 import IndividualProductPage from './IndividualProductPage.jsx'
 
 const Shop = () => {
   
   console.log('Rendering Shop component')
+
   
   const [currentData, setCurrentData] = useState([])
 
@@ -24,28 +25,14 @@ const Shop = () => {
     }, [])
 
     const cards = currentData.map((product) => <ProductCard
-    initialProductData={product}
-    key={product.id}
+      initialProductData={product}
+      key={product.id}
     />)
 
   return (
     <Container>
       <div>
-        {cards}
-        <Routes>
-          {currentData.map((product) => (
-            <Route
-            key={product.id}
-            path={`shop/${product.id}`}
-            element={<IndividualProductPage product={product} />}
-            // render={() => {
-            //   console.log('Matched Route: ', `/shop/${product.id}`);
-            //   return <IndividualProductPage product={product}/>;
-            // }}
-            />
-          ))}
-          {/* <Route path='/*' element={<h1>Not Found</h1>}/> */}
-        </Routes>
+        {cards}         
       </div>
     </Container>
   )

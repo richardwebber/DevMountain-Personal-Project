@@ -3,8 +3,14 @@ import {  Product, User } from './db/model.js'
 const handlerFunctions = {
 
     getInventory: async(req, res) => {
+        console.log(req.query)
+        if (req.query.id ) {
+            const singleProduct = await Product.findByPk(req.query.id)
+            return res.send(singleProduct)
+        }
         const data = await Product.findAll()
         res.send(data)
+
     },
 
     addInventory: async(req, res) => {
