@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import shopReducer from './Shopping/shopping-reducer.js'
 
 const inititialState = {
     user: null,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
                 return state;
         }
     },
+    shop: shopReducer,
 })
 
 export default rootReducer
