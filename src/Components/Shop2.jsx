@@ -1,4 +1,4 @@
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import ProductCard from './ProductCard'
 import React from 'react'
 import axios from 'axios'
@@ -24,16 +24,19 @@ const Shop = () => {
         })
     }, [])
 
-    const cards = currentData.map((product) => <ProductCard
-      initialProductData={product}
-      key={product.id}
-    />)
+    const cards = currentData.map((product) => 
+    <Col key={product.id} md={3}>
+      <ProductCard
+        initialProductData={product}
+        key={product.id}
+      />
+    </Col>)
 
   return (
     <Container>
-      <div className='col-md-3'>
+      <Row>
         {cards}         
-      </div>
+      </Row>
     </Container>
   )
 }
