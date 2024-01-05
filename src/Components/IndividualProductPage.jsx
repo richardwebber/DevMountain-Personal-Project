@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
+import { connect } from 'react-redux'
 
 
 
@@ -46,4 +47,10 @@ const IndividualProductPage = () => {
     )
 }
 
-export default IndividualProductPage
+const mapStateToProps = state => {
+    return {
+        products: state.shop.products
+    }
+}
+
+export default connect(mapStateToProps)(IndividualProductPage);

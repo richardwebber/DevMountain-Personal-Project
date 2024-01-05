@@ -3,8 +3,8 @@ import ProductCard from './ProductCard'
 import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { Route, Routes, Link, useParams } from 'react-router-dom'
-import IndividualProductPage from './IndividualProductPage.jsx'
+// import { Route, Routes, Link, useParams } from 'react-router-dom'
+// import IndividualProductPage from './IndividualProductPage.jsx'
 
 const Shop = () => {
   
@@ -31,7 +31,7 @@ const Shop = () => {
 
   return (
     <Container>
-      <div>
+      <div className='col-md-3'>
         {cards}         
       </div>
     </Container>
