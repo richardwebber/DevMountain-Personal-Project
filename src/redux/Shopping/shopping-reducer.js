@@ -2,7 +2,7 @@ import * as actionTypes from './shopping-types';
 
 const INITITIAL_STATE = {
     products: [], // {id, name, descr, price, img}
-    cart: {}, // {id, name, descr, price, img, qty}
+    cart: [], // {id, name, descr, price, img, qty}
     currentItem: null,
 }
 
@@ -30,11 +30,21 @@ const shopReducer = (state = INITITIAL_STATE, action) => {
 
         case actionTypes.REMOVE_FROM_CART:
             // Implement the logic to remove a product from the cart
-            return {};
+            return {
+                ...state,
+                cart: state.cart.filter(item => item.id !==  action.payload.id),
+            };
 
         case actionTypes.ADJUST_QTY:
             // Implement the logic to adjust the quantity of a product in the cart
-            return {};
+            return {
+                ...state,
+                cart: state.cart.map((item) => 
+                    item.id === action.payload.id
+                    ? { ...item, qty: action.payload.qty }
+                    : item
+                ),
+            };
 
         case actionTypes.LOAD_CURRENT_ITEM:
             return {
