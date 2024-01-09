@@ -8,10 +8,13 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import { connect } from 'react-redux'
+import { addToCart } from '../redux/Shopping/shopping-action'
 
 
 
-const IndividualProductPage = () => {
+
+const IndividualProductPage = ({ addToCart, products }) => {
+    console.log(addToCart)
 
     let { id } = useParams()
 
@@ -26,21 +29,30 @@ const IndividualProductPage = () => {
         .catch((err) => {
             console.log(err)
         })
-    }, [])
+    }, [id])
+
+    const handleAddToCart = () => {
+        console.log('Redux State: ', product)
+
+        console.log('Selected Product:', product);
+        if (product) {
+            addToCart(product)
+            console.log('addToCart button clicked')
+        }
+    }
 
     console.log('Rendering IndividualProductPage for: ', product.name)
     return (
-        // <div className="productDiv">
-
-        //     <h2>{product.name}</h2>
-        //     <p>{product.description}</p>
-        // </div>
         <Container>
             <Row>
                 <Col>
-                    <Image /> 
+                    <Image src={product.url} alt={product.name} /> 
+                </Col>
+                <Col>
                     <h2>{product.name}</h2>
                     <p>{product.description}</p>
+                    <p>${product.price}</p>
+                    <button onClick={handleAddToCart}>Add to Cart</button>
                 </Col>
             </Row>
         </Container>
@@ -48,9 +60,16 @@ const IndividualProductPage = () => {
 }
 
 const mapStateToProps = state => {
+    console.log('Redux State Products:', state.shop.products)
     return {
-        products: state.shop.products
+        products: state.shop.products,
     }
 }
 
-export default connect(mapStateToProps)(IndividualProductPage);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: (product) => dispatch(addToCart(product)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndividualProductPage);

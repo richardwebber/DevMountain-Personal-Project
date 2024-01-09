@@ -27,6 +27,7 @@ const router = createBrowserRouter(
         <Route
           path={`:id`}
           element={<IndividualProductPage />}
+          
         />
       </Route>
       <Route path='/archive' element={<Archive/>} />

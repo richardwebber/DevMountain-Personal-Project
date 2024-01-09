@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 // import { Route, Routes, Link, useParams } from 'react-router-dom'
 // import IndividualProductPage from './IndividualProductPage.jsx'
 
+
 const Shop = () => {
   
   console.log('Rendering Shop component')
@@ -25,7 +26,7 @@ const Shop = () => {
     }, [])
 
     const cards = currentData.map((product) => 
-    <Col key={product.id} md={3}>
+    <Col key={product.id} md={4} style={{border: 'none', padding: '10px'}}>
       <ProductCard
         initialProductData={product}
         key={product.id}
@@ -33,12 +34,13 @@ const Shop = () => {
     </Col>)
 
   return (
-    <Container>
-      <Row>
+    <Container >
+      <Row >
         {cards}         
       </Row>
     </Container>
   )
 }
+
 
 export default Shop
