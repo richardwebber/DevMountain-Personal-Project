@@ -7,15 +7,17 @@ import {connect} from 'react-redux'
 
 function NavbarMain({ cart }) {
     
-    const [cartCount, setCartCount] = useState(0)
+    // const [cartCount, setCartCount] = useState(0)
 
-    useEffect(() => {
-        let count = 0;
-        cart.forEach((item) => {
-            count += item.qty
-        })
-        setCartCount(count)
-    }, [cart, cartCount])
+    // useEffect(() => {
+    //     let count = 0;
+    //     cart.forEach((item) => {
+    //         count += item.qty
+    //     })
+    //     setCartCount(count)
+    // }, [cart, cartCount])
+    const cartQuantity = cart.reduce((total, item) => total + item.qty, 0);
+
 
     return (
         <Navbar expand='md' bg='dark' data-bs-theme='dark'>
@@ -30,7 +32,7 @@ function NavbarMain({ cart }) {
                         <Link to='/account' className="nav-link">Account</Link>
                         <Link to='/cart' className='nav-link'> 
                             <i className="material-icons">shopping_cart</i>
-                            <p>{cartCount}</p>
+                            <p>{cartQuantity}</p>
                         </Link>
                     </Nav>
                 </Navbar.Collapse>

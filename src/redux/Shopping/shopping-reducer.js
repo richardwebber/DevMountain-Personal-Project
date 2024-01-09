@@ -27,27 +27,8 @@ const shopReducer = (state = INITITIAL_STATE, action) => {
                     ...state,
                     cart: updatedCart,
                 }
-            }
-        // case actionTypes.ADD_TO_CART:
-        //     const {cart} = state
-        //     const product = action.payload.id
-        //     // If the product is not in the cart, add it; otherwise, update the quantity
-        //     console.log(product, cart[product.id])
-        //     if (!cart[product.id]) {
-        //         return {
-        //             ...state,
-        //             cart: {...cart, [product.id]: {...product, qty: 1 }},
-        //         };
-        //     } else {
-        //         const updatedCart = {...cart};
-        //         updatedCart[product.id].qty += 1;
-
-        //         return {
-        //             ...state,
-        //             cart: updatedCart,
-        //         };
-        //     }
-
+            };
+     
         case actionTypes.REMOVE_FROM_CART:
             // Implement the logic to remove a product from the cart
             return {
