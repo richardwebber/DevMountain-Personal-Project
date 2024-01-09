@@ -30,7 +30,7 @@ function NavbarMain({ cart }) {
                         <Link to='/account' className="nav-link">Account</Link>
                         <Link to='/cart' className='nav-link'> 
                             <i className="material-icons">shopping_cart</i>
-                            <div>{cartCount}</div>
+                            <p>{cartCount}</p>
                         </Link>
                     </Nav>
                 </Navbar.Collapse>

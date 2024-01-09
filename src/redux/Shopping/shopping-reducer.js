@@ -9,24 +9,44 @@ const INITITIAL_STATE = {
 const shopReducer = (state = INITITIAL_STATE, action) => {
     switch (action.type) {
         case actionTypes.ADD_TO_CART:
-            const {cart} = state
-            const product = action.payload.id
-            // If the product is not in the cart, add it; otherwise, update the quantity
-            console.log(product, cart[product.id])
-            if (!cart[product.id]) {
+            const { cart } = state;
+            const productToAdd = action.payload
+
+            if (!cart.find(item => item.id === productToAdd.id)) {
                 return {
                     ...state,
-                    cart: {...cart, [product.id]: {...product, qty: 1 }},
-                };
+                    cart: [...cart, {...productToAdd, qty: 1}]
+                }
             } else {
-                const updatedCart = {...cart};
-                updatedCart[product.id].qty += 1;
-
+                const updatedCart = cart.map((item) => 
+                    item.id === productToAdd.id
+                    ? {...item, qty: item.qty + 1}
+                    : item
+                )
                 return {
                     ...state,
                     cart: updatedCart,
-                };
+                }
             }
+        // case actionTypes.ADD_TO_CART:
+        //     const {cart} = state
+        //     const product = action.payload.id
+        //     // If the product is not in the cart, add it; otherwise, update the quantity
+        //     console.log(product, cart[product.id])
+        //     if (!cart[product.id]) {
+        //         return {
+        //             ...state,
+        //             cart: {...cart, [product.id]: {...product, qty: 1 }},
+        //         };
+        //     } else {
+        //         const updatedCart = {...cart};
+        //         updatedCart[product.id].qty += 1;
+
+        //         return {
+        //             ...state,
+        //             cart: updatedCart,
+        //         };
+        //     }
 
         case actionTypes.REMOVE_FROM_CART:
             // Implement the logic to remove a product from the cart
