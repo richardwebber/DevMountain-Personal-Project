@@ -6,9 +6,9 @@ import CartItem from './CartItem.jsx'
 const Cart = ({ cart }) => {
   return (
     <div>
-      {cart.map(item => {
+      {cart.map(item => (
         <CartItem key={item.id} itemData={item}/>
-      })}
+      ))}
     </div>
   )
 }
