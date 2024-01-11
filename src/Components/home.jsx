@@ -10,7 +10,9 @@ export default function Home() {
 
   
         <Link to='/shop' className='nav-link'>
-          <Col>Shop</Col>
+          <Col>
+          <img src="http://shirtstuckedin.com/wp-content/uploads/2023/08/1_0023_Layer-40-1024x683.jpg" alt="picture of 1992 Nissan Silvia s13" />
+          </Col>
         </Link>
   
 

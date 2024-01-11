@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 // import styles from "./Cart.css"
 
 
+
 function NavbarMain({ cart }) {
     
     // const [cartCount, setCartCount] = useState(0)
@@ -22,7 +23,11 @@ function NavbarMain({ cart }) {
     return (
         <Navbar expand='md' bg='dark' data-bs-theme='dark'>
             <Container fluid>
-                <Navbar.Brand className='logo'><Link to='/' className="logo nav-link">RAW</Link></Navbar.Brand>
+                <Navbar.Brand className='logo'><Link to='/' className="logo nav-link">
+                    <figure >
+                    <img src="../../pictures/logo3.png" alt="" style={{width: '200px'}}/>
+                    </figure>
+                    </Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls='basic-navbar-nav'/>
                 <Navbar.Collapse id='basic-navbar-nav'>
                     <Nav className='me-auto'>

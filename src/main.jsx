@@ -12,6 +12,7 @@ import Admin from './Components/Admin.jsx'
 import IndividualProductPage from './Components/IndividualProductPage.jsx'
 import { Provider } from 'react-redux'
 import store from './redux/store.js'
+import CheckOut from './Components/CheckOut.jsx'
 
 
 const router = createBrowserRouter(
@@ -27,11 +28,12 @@ const router = createBrowserRouter(
         <Route
           path={`:id`}
           element={<IndividualProductPage />}
-          
+
         />
       </Route>
       <Route path='/archive' element={<Archive/>} />
       <Route path='/cart' element={<Cart/>} /> 
+      <Route path='/checkout' element={<CheckOut/>} />
       <Route path='/admin' element={<Admin/>}/>
       
     </Route>
