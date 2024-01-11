@@ -23,7 +23,7 @@ const Cart = ({ cart }) => {
 
   const navigate = useNavigate()
 
-  const viewProduct = () => {
+  const viewCheckout = () => {
     console.log('Navigate to:', `/checkout`)
     navigate(`/checkout`)
   }
@@ -43,7 +43,7 @@ const Cart = ({ cart }) => {
           <span>TOTAL: ({totalItems} {quantityText})</span>
           <span>$ {totalPrice}</span>
         </div>
-        <button variant='primary' onClick={viewProduct}>Proceed To Checkout</button>
+        <button variant='primary' onClick={viewCheckout}>Proceed To Checkout</button>
       </div>
     </div>
   )

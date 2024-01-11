@@ -34,3 +34,10 @@ export const loadCurrentItem = (item) => {
         payload: item
     }
 }
+
+export const addToDatabaseAction = (cart) => {
+    return {
+        type: actionTypes.ADD_TO_DATABASE,
+        payload: cart
+    }
+}

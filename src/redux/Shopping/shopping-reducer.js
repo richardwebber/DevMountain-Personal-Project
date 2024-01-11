@@ -53,6 +53,12 @@ const shopReducer = (state = INITITIAL_STATE, action) => {
                 currentItem: action.payload,
             };
 
+        case actionTypes.ADD_TO_DATABASE:
+            return {
+                ...state, 
+                cart
+            }
+
         default:
             return state;
     }
