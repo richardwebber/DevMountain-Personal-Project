@@ -11,10 +11,12 @@ app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))
 
 import handlerFunctions from './controller.js'
-const { getInventory, addInventory, deleteInventory, editInventory } = handlerFunctions
+const { getInventory, addInventory, deleteInventory, editInventory, getOrder, addOrder } = handlerFunctions
 
 app.get('/products', getInventory)
+app.get('/orders', getOrder)
 app.post('/product', addInventory)
+app.post('/order', addOrder)
 app.delete('/product/:id', deleteInventory)
 app.put('/product/:id', editInventory)
 

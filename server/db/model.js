@@ -85,12 +85,13 @@ User.init(
             autoIncrement: true,
             primaryKey: true
         },
-        email: {
+        userName: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        phone: {
-            type: DataTypes.STRING
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         admin: {
             type: DataTypes.BOOLEAN,
@@ -105,40 +106,60 @@ User.init(
 )
 
 
-// class Cart extends Model {
-//     [util.inspect.custom]() {
-//         return this.toJSON()
-//     }
-// }
+class Cart extends Model {
+    [util.inspect.custom]() {
+        return this.toJSON()
+    }
+}
 
-// Cart.init(
-//     {
-//        orderId: {
-//             type: DataTypes.INTEGER,
-//             autoIncrement: true,
-//             primaryKey: true
-//        },
-//        status: {
-//             type: DataTypes.ENUM('pending', 'processing', 'canceled', 'delivered'),
-//             allowNull: false,
-//             defaultValue: 'pending'
-//        },
-//        createAt: {
-//             type: DataTypes.DATE,
-//             allowNull: false,
-//             defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-//        },
-//        updatedAt: {
-//             type: DataTypes.DATE,
-//             allowNull: false,
-//             defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-//        }
-//     },
-//     {
-//         modelName: 'cart',
-//         sequelize: db
-//     }
-// )
+Cart.init(
+    {
+       orderId: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+       },
+       firstName: {
+            type: DataTypes.STRING,
+            allowNull: false
+       },
+       lastName: {
+            type: DataTypes.STRING,
+            allowNull: false
+       },
+       email: {
+            type: DataTypes.STRING,
+            allowNull: false
+       },
+       order: {
+            type: DataTypes.STRING,
+            allowNull: false
+       },
+       itemQty: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+       },
+       status: {
+            type: DataTypes.ENUM('pending', 'processing', 'canceled', 'delivered'),
+            allowNull: false,
+            defaultValue: 'pending'
+       },
+       createAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+       },
+       updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+       }
+    },
+    {
+        modelName: 'cart',
+        sequelize: db
+    }
+)
 
 
 // class Item extends Model {

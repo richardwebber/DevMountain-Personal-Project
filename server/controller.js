@@ -40,25 +40,40 @@ const handlerFunctions = {
         //     { where: { id } }
         // )
 
-        let editJob = await Product.findByPk(id)
-        editJob.name = name
-        editJob.description = description
-        editJob.price = price
-        editJob.url = url
-        editJob.s = small
-        editJob.m = medium
-        editJob.l = large
-        editJob.xl = xl
-        editJob.sales = sales
+        let editProduct = await Product.findByPk(id)
+        editProduct.name = name
+        editProduct.description = description
+        editProduct.price = price
+        editProduct.url = url
+        editProduct.s = small
+        editProduct.m = medium
+        editProduct.l = large
+        editProduct.xl = xl
+        editProduct.sales = sales
         
-        await editJob.save()
+        await editProduct.save()
 
 
         const inventory = await Product.findAll()
         res.send(inventory)
     },
 
-    
+    getOrder: async(req, res) => {
+        console.log(req.query)
+        if (req.query.id ) {
+            const singleOrder = await Order.findByPk(req.query.id)
+            return res.send(singleOrder)
+        }
+        const data = await Order.findAll()
+        res.send(data)
+
+    },
+
+    addOrder: async(req, res) => {
+        await Order.create({})
+        const allOrders = await Order.findAll()
+        res.send(allOrders)
+    },
 
 }
 

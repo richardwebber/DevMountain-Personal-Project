@@ -9,6 +9,10 @@ import { Product } from './model.js';
 //     admin: true
 // })
 
+await User.create(
+    
+) 
+
 const allProducts = [
     { name: 'Red Hoodie', description: 'A warm red piece for the winter', price: 20.00, url: 'some picture', s: 10, m: 10, l: 10, xl: 10 },
     { name: 'Blue Hoodie', description: 'A warm blue piece for the winter', price: 20.00, url: 'some picture', s: 10, m: 10, l: 10, xl: 10 },
