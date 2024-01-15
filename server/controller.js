@@ -56,7 +56,9 @@ const handlerFunctions = {
 
         const inventory = await Product.findAll()
         res.send(inventory)
-    }
+    },
+
+    
 
 }
 

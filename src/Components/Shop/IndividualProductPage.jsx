@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import { connect } from 'react-redux'
-import { addToCart } from '../redux/Shopping/shopping-action'
+import { addToCart } from '../../redux/Shopping/shopping-action'
 
 
 

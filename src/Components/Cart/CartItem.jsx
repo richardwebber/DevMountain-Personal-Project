@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {connect} from 'react-redux'
-import { removeFromCart, adjustQty } from '../redux/Shopping/shopping-action'
+import { removeFromCart, adjustQty } from '../../redux/Shopping/shopping-action'
 
 
 const CartItem = ({ itemData, removeFromCart, adjustQty }) => {

@@ -4,15 +4,15 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
-import Home from './Components/home.jsx'
-import Shop from './Components/Shop2.jsx'
-import Archive from './Components/Archive.jsx'
-import Cart from './Components/Cart.jsx'
-import Admin from './Components/Admin.jsx'
-import IndividualProductPage from './Components/IndividualProductPage.jsx'
+import Home from './Components/Home/home.jsx'
+import Shop from './Components/Shop/Shop2.jsx'
+import Archive from './Components/Archrive/Archive.jsx'
+import Cart from './Components/Cart/Cart.jsx'
+import Admin from './Components/Admin/Admin.jsx'
+import IndividualProductPage from './Components/Shop/IndividualProductPage.jsx'
 import { Provider } from 'react-redux'
 import store from './redux/store.js'
-import CheckOut from './Components/CheckOut.jsx'
+import CheckOut from './Components/Cart/CheckOut.jsx'
 
 
 const router = createBrowserRouter(
