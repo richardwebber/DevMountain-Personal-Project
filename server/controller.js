@@ -1,4 +1,4 @@
-import {  Product, User } from './db/model.js'
+import {  Product, User, Cart } from './db/model.js'
 
 const handlerFunctions = {
 
@@ -61,19 +61,33 @@ const handlerFunctions = {
     getOrder: async(req, res) => {
         console.log(req.query)
         if (req.query.id ) {
-            const singleOrder = await Order.findByPk(req.query.id)
+            const singleOrder = await Cart.findByPk(req.query.id)
             return res.send(singleOrder)
         }
-        const data = await Order.findAll()
+        const data = await Cart.findAll()
         res.send(data)
 
     },
 
     addOrder: async(req, res) => {
-        await Order.create({})
-        const allOrders = await Order.findAll()
+        await Cart.create({})
+        const allOrders = await Cart.findAll()
         res.send(allOrders)
     },
+
+    editOrder: async(req, res) => {
+        const { id } = req.params
+        const { status } = req.body
+
+        let editOrder = await Cart.findByPk(id)
+        editOrder.status = status
+        
+        await editOrder.save()
+
+
+        const inventory = await Cart.findAll()
+        res.send(inventory)
+    }
 
 }
 
