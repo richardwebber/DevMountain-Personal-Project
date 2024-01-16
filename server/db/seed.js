@@ -1,17 +1,19 @@
-import { Product } from './model.js';
+import { Product, User, Cart } from './model.js';
 
 
-// const user1 = await User.create( {
-//     userName: 'Rikki',
-//     email: 'poopoopeepee@gmail.com',
-//     phone: 911,
-//     password: 113,
-//     admin: true
-// })
+await User.create( {
+    userName: 'Rikki',
+    password: 113,
+    admin: true
+})
 
-await User.create(
-    
-) 
+await Cart.create({
+    firstName: 'David',
+    lastName: 'Miller',
+    email: 'david.miller@email.com',
+    order: 'Red Hoodie',
+    itemQty: '3'
+}) 
 
 const allProducts = [
     { name: 'Red Hoodie', description: 'A warm red piece for the winter', price: 20.00, url: 'some picture', s: 10, m: 10, l: 10, xl: 10 },

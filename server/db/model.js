@@ -208,4 +208,4 @@ if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
 
 
 
-export { Product, User }
+export { Product, User, Cart }
