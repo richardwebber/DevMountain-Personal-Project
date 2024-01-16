@@ -1,12 +1,12 @@
 import axios from 'axios'
 import AddButton from './AddButton.jsx'
-import TableHeader from './TableHeader.jsx'
-import TableRow from './TableRow.jsx'
+import TableHeader from './ProductTableComponents/TableHeader.jsx'
+import TableRow from './ProductTableComponents/TableRow.jsx'
 // import './Admin.css'
 
 import { useState, useEffect } from 'react'
 
-const InvoiceDisplay = () => {
+const ProductTableDisplay = () => {
     const [currentData, setCurrentData] = useState([])
 
     useEffect(() => {
@@ -69,4 +69,4 @@ const InvoiceDisplay = () => {
     )
 }
 
-export default InvoiceDisplay
+export default ProductTableDisplay

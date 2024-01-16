@@ -1,10 +1,10 @@
 import React from 'react'
 // import './App.css'
-import InvoiceDisplay from './InvoiceDisplay'
+import ProductTableDisplay from './ProductTableDisplay'
 
 const admin = () => {
   return (
-    <InvoiceDisplay />
+    <ProductTableDisplay />
   )
 }
 

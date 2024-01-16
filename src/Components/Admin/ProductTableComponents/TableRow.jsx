@@ -7,9 +7,9 @@ import Small from './Small.jsx';
 import Medium from './Medium.jsx';
 import Large from './Large.jsx';
 import ExtraLarge from './ExtraLarge.jsx';
-import ModeButton from './ModeButton.jsx';
+import ModeButton from '../ModeButton.jsx';
 import Description from './Description.jsx';
-import './Admin.css';
+import '../Admin.css';
 
 
 const TableRow = (props) => {
