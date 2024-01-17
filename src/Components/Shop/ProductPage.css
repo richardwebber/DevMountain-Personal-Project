@@ -3,6 +3,11 @@
     margin: auto;
     width: 90%;
 }
+
+button.selected {
+    background-color: #4caf50; /* Green background */
+    color: white; /* White text */
+}
 /* 
 h2 {
     margin: auto;

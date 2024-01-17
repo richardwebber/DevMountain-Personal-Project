@@ -14,11 +14,11 @@ import { addToCart } from '../../redux/Shopping/shopping-action'
 
 
 const IndividualProductPage = ({ addToCart, products }) => {
-    console.log(addToCart)
+    const [product, setProduct] = useState({})
+    const [size, setSize] = useState('')
+    const [selectedSize, setSelectedSize] = useState('')
 
     let { id } = useParams()
-
-    const [product, setProduct] = useState({})
 
     useEffect(() => {
         axios.get(`/products?id=${id}`)
@@ -31,13 +31,23 @@ const IndividualProductPage = ({ addToCart, products }) => {
         })
     }, [id])
 
+    const handleSizeChange = (selectedSize) => {
+        setSelectedSize(selectedSize)
+        setSize(selectedSize)
+    }
+
     const handleAddToCart = () => {
         console.log('Redux State: ', product)
-
-        console.log('Selected Product:', product);
-        if (product) {
-            addToCart(product)
+        if (size) {
+            const productWithSize = {
+                ...product,
+                size,
+            };
+            addToCart(productWithSize)
             console.log('addToCart button clicked')
+            console.log(productWithSize)
+        } else {
+            console.log('Please select a size before adding to cart')
         }
     }
 
@@ -52,6 +62,32 @@ const IndividualProductPage = ({ addToCart, products }) => {
                     <h2>{product.name}</h2>
                     <p>{product.description}</p>
                     <p>${product.price}</p>
+                    <div>
+                        <button 
+                        onClick={() => handleSizeChange('small')}
+                        className={selectedSize === 'small' ? 'selected' : ''}
+                        >
+                            SM
+                        </button>
+                        <button 
+                        onClick={() => handleSizeChange('medium')}
+                        className={selectedSize === 'medium' ? 'selected' : ''}
+                        >
+                            MD
+                        </button>
+                        <button 
+                        onClick={() => handleSizeChange('large')}
+                        className={selectedSize === 'large' ? 'selected' : ''}
+                        >
+                            LG
+                        </button>
+                        <button 
+                        onClick={() => handleSizeChange('extra-large')}
+                        className={selectedSize === 'extra-large' ? 'selected' : ''}
+                        >
+                            XL
+                        </button>
+                    </div>
                     <button onClick={handleAddToCart}>Add to Cart</button>
                 </Col>
             </Row>
