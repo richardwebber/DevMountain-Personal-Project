@@ -24,9 +24,10 @@ const CheckOut = ({ cart, addToDatabase }) => {
       }),
     };
     // console.log(allCheckOutData);
-    let ordersArr = allCheckOutData.userCart.map((product) => ({
+    let ordersArr = await allCheckOutData.userCart.map((product) => ({
       firstName: allCheckOutData.firstName,
       lastName: allCheckOutData.lastName,
+      order: product.itemName,
       email: allCheckOutData.email,
       itemName: product.itemName,
       itemQty: product.itemQty

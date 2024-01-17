@@ -37,17 +37,30 @@ const IndividualProductPage = ({ addToCart, products }) => {
     }
 
     const handleAddToCart = () => {
-        console.log('Redux State: ', product)
+        console.log('Redux State:', products)
         if (size) {
-            const productWithSize = {
-                ...product,
-                size,
-            };
-            addToCart(productWithSize)
+            const existingCartItem = products.find(
+                (item) => item.size === size && item.name === product.name
+            )
+            console.log('This is the existingCartItem: ', existingCartItem)
+            if (existingCartItem) {
+                const updatedCartItem = {
+                    ...existingCartItem,
+                    qty: existingCartItem.qty + 1,
+                }
+                addToCart(updatedCartItem)
+                console.log('Add to cart object:', updatedCartItem)
+            } else {
+                const productWithSize = {
+                    ...product,
+                    size,
+                    qty: 1
+                }
+                addToCart(productWithSize)
+            }
             console.log('addToCart button clicked')
-            console.log(productWithSize)
         } else {
-            console.log('Please select a size before adding to cart')
+            alert('Please select a size before adding to cart')
         }
     }
 

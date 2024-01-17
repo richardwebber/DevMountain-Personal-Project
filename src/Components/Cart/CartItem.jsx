@@ -19,6 +19,7 @@ const CartItem = ({ itemData, removeFromCart, adjustQty }) => {
         <p>{itemData.id.name}</p>
         <p>{itemData.id.description}</p>
         <p>{itemData.id.price}</p>
+        <p>{itemData.id.size}</p>
       </div>
       <div>
         <div>

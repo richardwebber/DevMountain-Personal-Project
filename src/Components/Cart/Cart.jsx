@@ -4,21 +4,40 @@ import CartItem from "./CartItem.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Cart = ({ cart }) => {
+  const [uniqueCartItems, setUniqueCartItem] = useState([])
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
-    let items = 0;
-    let price = 0;
+    const uniqueItemsMap = new Map()
 
     cart.forEach((item) => {
-      items += item.qty;
-      price += item.qty * item.id.price;
-    });
+      console.log(item)
+      const key = `${item.id.size}-${item.id.name}`
+      if (!uniqueItemsMap.has(key)) {
+        uniqueItemsMap.set(key, {...item, prevQty: 0 })
+      } else {
+        const existingItem = uniqueItemsMap.get(key)
+        existingItem.qty += item.qty
+        setUniqueCartItem(Array.from(uniqueItemsMap.values()))
+      }
+    })
 
-    setTotalPrice(price);
-    setTotalItems(items);
-  }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems]);
+    const uniqueItemsArray = Array.from(uniqueItemsMap.values())
+    setUniqueCartItem(uniqueItemsArray)
+
+    let items = 0
+    let price = 0
+
+    uniqueItemsArray.forEach((item) => {
+      items += item.qty
+      price += (item.qty - item.prevQty) * item.id.price
+      item.prevQty = item.qty
+    })
+
+    setTotalPrice(price)
+    setTotalItems(items)
+  }, [ cart ]);
 
   const navigate = useNavigate();
 
@@ -31,8 +50,8 @@ const Cart = ({ cart }) => {
   return (
     <div>
       <div>
-        {cart.map((item) => (
-          <CartItem key={item.id} itemData={item} />
+        {uniqueCartItems.map((item) => (
+          <CartItem key={item.id.id + item.id.size} itemData={item}/>
         ))}
       </div>
       <div>

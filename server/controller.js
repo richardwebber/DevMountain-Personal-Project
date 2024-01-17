@@ -71,9 +71,10 @@ const handlerFunctions = {
 
     addOrder: async(req, res) => {
         const { userCart } = req.body
-        const newOrder = await Cart.create({ userCart })
+        console.log(req.body)
+        const newOrder = await Cart.create(req.body)
         const allOrders = await Cart.findAll()
-        
+        console.log(userCart)
         res.send(allOrders)
     },
 
