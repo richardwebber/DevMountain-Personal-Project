@@ -32,12 +32,11 @@ const CheckOut = ({ cart, addToDatabase }) => {
       itemQty: product.itemQty
     }))
 
-    try {
-      for (let order of ordersArr) {
-        await axios.post('/order', order)
-      }
+    console.log(ordersArr)
 
-      addToDatabase(allCheckOutData)
+    try {
+      await Promise.all(ordersArr.map(order => axios.post('/order', order)))
+      // addToDatabase(allCheckOutData)
     } catch (error) {
       console.error('Error submitting order:', error)
     }
