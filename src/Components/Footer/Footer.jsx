@@ -1,37 +1,43 @@
 import React from "react"
+import './Footer.css'
 
 
 export default function Footer()  {
     return (
-        <footer className="page-footer font-small blue pt-4">
+        <footer className="page-footer font-small blue pt-4 footer-style" >
             <div className="container-fluid text-center text-md-left">
                 <div className="row">
-                    <div className="col-md-6 mt-md-0 mt-3">
-                        <h5 className="text-uppercase">Footer Content</h5>
-                        <p>Here you can use rows and columns to organize your footer content.</p>
+                    
+                    <div className="col-md-3 mt-md-0 mt-3">
+                        <ul className="list-unstyled ul-link">
+                            <li><a className='footer-link' href="#!">Blog</a></li>
+                        </ul>
                     </div>
 
-                    <hr className="clearfix w-100 d-md-none pb-0"/>
+                    <div className="col-md-3 mt-md-0 mt-3">
+                        <ul className="list-unstyled ul-link">
+                            <li><a className='footer-link' href="#!">Returns</a></li>
+                        </ul>
+                    </div>
+
+                    <hr className="clearfix w-100 d-md-none pb-0" style={{color: 'black'}}/>
 
                     <div className="col-md-3 mb-md-0 mb-3">
-                        <h5 className="text-uppercase">Links</h5>
-                        <ul className="list-unstyled">
-                            <li><a href="#!">Archive</a></li>
+                        <ul className="list-unstyled ul-link">
+                            <li><a className='footer-link' href="/archive">Archive</a></li>
                         </ul>
                     </div>
 
                     <div className="col-md-3 mb-md-0 mb-3">
-                        <h5 className="text-uppercase">Links</h5>
-                        <ul className="list-unstyled">
-                            <li><a href="/admin">Admin</a></li>
-                            
+                        <ul className="list-unstyled ul-link">
+                            <li><a className='footer-link' href="/admin">Admin</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <div className="footer-copyright text-center py-3">© 2020 Copyright:
-                <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+            <div className="footer-copyright text-center py-3">© 2023 Copyright:
+                <a className='footer-link' href="https://www.linkedin.com/in/richard-webber-b1a052276/"> RAW.HOUSECOLLECTIVE</a>
             </div>
 
         </footer>

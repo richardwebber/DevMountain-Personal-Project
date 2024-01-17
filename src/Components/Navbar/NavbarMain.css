@@ -1,0 +1,26 @@
+.navbar-main {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    font-size: large;
+    
+}
+
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-quantity {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 9px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+

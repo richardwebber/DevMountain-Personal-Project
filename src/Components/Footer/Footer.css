@@ -1,0 +1,24 @@
+.footer-style {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: aliceblue;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+div {
+    border-radius: solid white 40px
+}
+
+.ul-link {
+    height: 10px;
+}
+
+.footer-link {
+    color: rgb(149, 149, 149);
+    text-decoration: none;
+}

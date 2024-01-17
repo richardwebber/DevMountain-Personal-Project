@@ -2,7 +2,7 @@ import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect }from "react";
 import {connect} from 'react-redux'
-// import styles from "./Cart.css"
+import './NavbarMain.css'
 
 
 
@@ -21,7 +21,7 @@ function NavbarMain({ cart }) {
 
 
     return (
-        <Navbar expand='md' bg='dark' data-bs-theme='dark'>
+        <Navbar expand='md' bg='dark' data-bs-theme='dark' className='navbar-main'>
             <Container fluid>
                 <Navbar.Brand className='logo'><Link to='/' className="logo nav-link">
                     <figure >
@@ -35,9 +35,9 @@ function NavbarMain({ cart }) {
                         <Link to='/shop' className='nav-link'>Shop</Link>
                         <Link to='/archive' className='nav-link'>Archive</Link>
                         <Link to='/account' className="nav-link">Account</Link>
-                        <Link to='/cart' className='nav-link'> 
+                        <Link to='/cart' className='nav-link cart-icon'> 
                             <i className="material-icons">shopping_cart</i>
-                            <p>{cartQuantity}</p>
+                            <p className='cart-quantity'>{cartQuantity}</p>
                         </Link>
                     </Nav>
                 </Navbar.Collapse>
