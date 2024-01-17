@@ -4,31 +4,47 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { connect } from "react-redux";
 import { useState } from "react";
+import axios from "axios";
 
 const CheckOut = ({ cart, addToDatabase }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleAllCheckOuts = () => {
+  const handleAllCheckOuts = async () => {
     const allCheckOutData = {
       firstName,
       lastName,
       email,
       userCart: cart.map((item) => {
         return {
-          itemId: item.id.id,
           itemName: item.id.name,
-          itemPrice: item.id.price,
           itemQty: item.qty,
         };
       }),
     };
-    console.log(allCheckOutData);
+    // console.log(allCheckOutData);
+    let ordersArr = allCheckOutData.userCart.map((product) => ({
+      firstName: allCheckOutData.firstName,
+      lastName: allCheckOutData.lastName,
+      email: allCheckOutData.email,
+      itemName: product.itemName,
+      itemQty: product.itemQty
+    }))
+
+    try {
+      for (let order of ordersArr) {
+        await axios.post('/order', order)
+      }
+
+      addToDatabase(allCheckOutData)
+    } catch (error) {
+      console.error('Error submitting order:', error)
+    }
   };
 
   return (
-    <Form style={{ "max-width": "900px", margin: "auto" }}>
+    <Form style={{ "maxWidth": "900px", margin: "auto" }}>
       <Form.Group className="mb-3" controlId="formGroupName">
         <h1>Checkout</h1>
         <Row>

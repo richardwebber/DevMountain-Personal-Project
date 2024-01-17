@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import OrderEditSaveButton from './OrderEditSaveButton.jsx';
 
 const OrdersTable = (props) => {
     const {initialOrderData, currentOrder, setCurrentOrder} = props
@@ -23,9 +22,7 @@ const OrdersTable = (props) => {
     return (
         <tr>
            <td>
-            <OrderEditSaveButton
             
-            />
            </td>
             <td className='tdStyle'>
                 {initialOrderData.firstName}

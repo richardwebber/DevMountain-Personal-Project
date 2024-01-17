@@ -41,3 +41,10 @@ export const addToDatabaseAction = (cart) => {
         payload: cart
     }
 }
+
+export const addToOrders = (cartData) => {
+    return {
+        type: actionTypes.ADD_TO_CART,
+        payload: cartData,
+    }
+}
