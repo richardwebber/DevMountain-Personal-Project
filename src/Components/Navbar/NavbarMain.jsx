@@ -21,8 +21,8 @@ function NavbarMain({ cart }) {
 
 
     return (
-        <Navbar expand='md' bg='dark' data-bs-theme='dark' className='navbar-main'>
-            <Container fluid>
+        <Navbar expand='md' bg='dark' data-bs-theme='dark' className='navbar-main' fixed='top'>
+            <Container fluid >
                 <Navbar.Brand className='logo'><Link to='/' className="logo nav-link">
                     <figure >
                     <img src="../../pictures/logo3.png" alt="" style={{width: '200px'}}/>
@@ -34,7 +34,6 @@ function NavbarMain({ cart }) {
                         <Link to='/' className='nav-link'>Home</Link>
                         <Link to='/shop' className='nav-link'>Shop</Link>
                         <Link to='/archive' className='nav-link'>Archive</Link>
-                        <Link to='/account' className="nav-link">Account</Link>
                         <Link to='/cart' className='nav-link cart-icon'> 
                             <i className="material-icons">shopping_cart</i>
                             <p className='cart-quantity'>{cartQuantity}</p>

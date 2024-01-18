@@ -24,7 +24,7 @@ export default function Footer()  {
 
                     <div className="col-md-3 mb-md-0 mb-3">
                         <ul className="list-unstyled ul-link">
-                            <li><a className='footer-link' href="/archive">Archive</a></li>
+                            <li><a className='footer-link' href="/qa">Q&A</a></li>
                         </ul>
                     </div>
 
