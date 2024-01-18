@@ -21,6 +21,7 @@ const ProductCard = ({ initialProductData }) => {
       <Card.Body>
         <Card.Title>{initialProductData.name}</Card.Title>
         <Card.Text>{initialProductData.description}</Card.Text>
+        <Card.Text>${initialProductData.price}</Card.Text>
       </Card.Body>
       <Card.Footer>
         <Button variant='primary' onClick={viewProduct}>View Product</Button>
