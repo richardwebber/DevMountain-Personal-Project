@@ -37,7 +37,7 @@ const CartItem = ({ itemData, removeFromCart, adjustQty }) => {
       <Col lg={2}>
       <div>
         <Col className='item-qty-col'>
-          <label htmlFor="qty" className='qty-label'>Qty</label>
+          <label htmlFor="qty" className='qty-label'>Qty:</label>
           <input
             min="1"
             type="number"
