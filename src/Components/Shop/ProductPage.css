@@ -11,7 +11,7 @@ button.selected {
 
 .col-product-img {
     width: 600px;
-    padding: 30px
+    padding: 50px
 }
 
 .col-product-info {
@@ -22,8 +22,8 @@ button.selected {
 .details-style {
     padding-top: 50px;
     text-decoration: overline;
-    
 }
+
 
 .product-name {
     padding-top: 45px;
@@ -32,7 +32,7 @@ button.selected {
 
 .product-description {
     padding-bottom: 20px;
-    color: rgb(151, 151, 151);
+    color: rgb(122, 122, 122);
 }
 
 .product-price {
@@ -70,3 +70,9 @@ Button {
 .product-card-container {
     padding-bottom: 50px;
 }
+
+.solid-white-line {
+  border-top: 1px solid white;
+  padding-bottom: 30px;
+}
+

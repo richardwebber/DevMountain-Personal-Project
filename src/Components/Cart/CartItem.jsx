@@ -22,21 +22,22 @@ const CartItem = ({ itemData, removeFromCart, adjustQty }) => {
   return (
     <Container className='checkout-product-card-container'>
       <Row className='checkout-product-card-row'>
-        <Col lg={3}>
+        <Col lg={2}>
       <Image className='checkout-product-card-image' src={itemData.id.url} alt={itemData.id.name} />
         </Col>
-        <Col lg={7}>
+        <Col lg={4}>
       <div>
-        <p>{itemData.id.name}</p>
-        <p>{itemData.id.description}</p>
-        <p>${itemData.id.price}</p>
-        <p>{itemData.id.size}</p>
+        <p className='item-name'>{itemData.id.name}</p>
+        <p className='item-description'>{itemData.id.description}</p>
+        <p className='item-size'>{itemData.id.size}</p>
+        <p className='item-price'>${itemData.id.price}</p>
       </div>
       </Col>
+      <Col lg={4}></Col>
       <Col lg={2}>
       <div>
-        <Row>
-          <label htmlFor="qty">Qty</label>
+        <Col className='item-qty-col'>
+          <label htmlFor="qty" className='qty-label'>Qty</label>
           <input
             min="1"
             type="number"
@@ -44,8 +45,9 @@ const CartItem = ({ itemData, removeFromCart, adjustQty }) => {
             name="qty"
             value={input}
             onChange={onChangeHandler}
+            className='qty-input-field'
           />
-        </Row>
+        </Col>
         <Row>
         <Button onClick={() => removeFromCart(itemData.id)} className="remove-from-cart-button" variant='danger'>
           <i className="material-icons">delete</i>

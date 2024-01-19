@@ -77,6 +77,7 @@ const IndividualProductPage = ({ addToCart, products }) => {
                     <h2 className='product-name'>{product.name}</h2>
                     <p className='product-description'>{product.description}</p>
                     <p className='product-price'>${product.price}</p>
+                    <div className='solid-white-line'></div>
                     <div className='d-flex justify-content-center size-buttons-div'>
                         <Button 
                         variant='secondary'

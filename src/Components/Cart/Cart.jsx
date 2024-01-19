@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import CartItem from "./CartItem.jsx";
 import { useNavigate } from "react-router-dom";
+import './Cart.css'
 
 
 const Cart = ({ cart }) => {
@@ -49,14 +50,14 @@ const Cart = ({ cart }) => {
 
   const quantityText = totalItems === 1 ? "item" : "items";
   return (
-    <div>
+    <div className='cart-main-body-div'>
       <div>
         {uniqueCartItems.map((item) => (
           <CartItem key={item.id.id + item.id.size} itemData={item}/>
         ))}
       </div>
       <div>
-        <h4>Cart Summary</h4>
+        <h4 className='cart-summary-h4'>Cart Summary</h4>
         <div>
           <span>
             TOTAL: ({totalItems} {quantityText})
