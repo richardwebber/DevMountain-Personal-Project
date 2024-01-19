@@ -4,6 +4,13 @@ import {
   removeFromCart,
   adjustQty,
 } from "../../redux/Shopping/shopping-action";
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button'
+import './CartItem.css'
+
 
 const CartItem = ({ itemData, removeFromCart, adjustQty }) => {
   const [input, setInput] = useState(itemData.qty);
@@ -13,16 +20,22 @@ const CartItem = ({ itemData, removeFromCart, adjustQty }) => {
     adjustQty(itemData.id, e.target.value);
   };
   return (
-    <div>
-      <img src={itemData.id.url} alt={itemData.id.name} />
+    <Container className='checkout-product-card-container'>
+      <Row className='checkout-product-card-row'>
+        <Col lg={3}>
+      <Image className='checkout-product-card-image' src={itemData.id.url} alt={itemData.id.name} />
+        </Col>
+        <Col lg={7}>
       <div>
         <p>{itemData.id.name}</p>
         <p>{itemData.id.description}</p>
-        <p>{itemData.id.price}</p>
+        <p>${itemData.id.price}</p>
         <p>{itemData.id.size}</p>
       </div>
+      </Col>
+      <Col lg={2}>
       <div>
-        <div>
+        <Row>
           <label htmlFor="qty">Qty</label>
           <input
             min="1"
@@ -32,12 +45,16 @@ const CartItem = ({ itemData, removeFromCart, adjustQty }) => {
             value={input}
             onChange={onChangeHandler}
           />
-        </div>
-        <button onClick={() => removeFromCart(itemData.id)} className="danger">
+        </Row>
+        <Row>
+        <Button onClick={() => removeFromCart(itemData.id)} className="remove-from-cart-button" variant='danger'>
           <i className="material-icons">delete</i>
-        </button>
+        </Button>
+        </Row>
       </div>
-    </div>
+      </Col>
+      </Row>
+    </Container>
   );
 };
 

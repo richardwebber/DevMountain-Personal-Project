@@ -7,8 +7,10 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
 import { addToCart } from '../../redux/Shopping/shopping-action'
+
 
 
 
@@ -66,42 +68,48 @@ const IndividualProductPage = ({ addToCart, products }) => {
 
     console.log('Rendering IndividualProductPage for: ', product.name)
     return (
-        <Container>
+        <Container className='product-card-container'>
             <Row>
-                <Col>
-                    <Image src={product.url} alt={product.name} /> 
+                <Col lg={6}>
+                    <Image className='col-product-img' src={product.url} alt={product.name} /> 
                 </Col>
-                <Col>
-                    <h2>{product.name}</h2>
-                    <p>{product.description}</p>
-                    <p>${product.price}</p>
-                    <div>
-                        <button 
+                <Col lg={6} className='col-product-info'>
+                    <h2 className='product-name'>{product.name}</h2>
+                    <p className='product-description'>{product.description}</p>
+                    <p className='product-price'>${product.price}</p>
+                    <div className='d-flex justify-content-center size-buttons-div'>
+                        <Button 
+                        variant='secondary'
                         onClick={() => handleSizeChange('small')}
                         className={selectedSize === 'small' ? 'selected' : ''}
                         >
                             SM
-                        </button>
-                        <button 
+                        </Button>
+                        <Button 
+                        variant='secondary'
                         onClick={() => handleSizeChange('medium')}
                         className={selectedSize === 'medium' ? 'selected' : ''}
                         >
                             MD
-                        </button>
-                        <button 
+                        </Button>
+                        <Button 
+                        variant='secondary'
                         onClick={() => handleSizeChange('large')}
                         className={selectedSize === 'large' ? 'selected' : ''}
                         >
                             LG
-                        </button>
-                        <button 
+                        </Button>
+                        <Button 
+                        variant='secondary'
                         onClick={() => handleSizeChange('extra-large')}
                         className={selectedSize === 'extra-large' ? 'selected' : ''}
                         >
                             XL
-                        </button>
+                        </Button>
                     </div>
-                    <button onClick={handleAddToCart}>Add to Cart</button>
+                    <Button variant='success' className='add-to-cart-button' onClick={handleAddToCart}>Add to Cart</Button>
+                    <h3 className='details-style'>Details</h3>
+                    <p className='item-details'>The (item) is constructed in our 12 oz organic and untreated cotton Dearborn Canvas, meaning that the style will soften with wear over time, creating a fit that is unique to the wearer. Inspired by a classic chore coat silhouette, the garment is cut in a regular fit and features a striped blanket lining for warmth. A corduroy collar and front patch pockets offer tactile touches, while triple-stitch details provide extra durability. The (item) features similar construction with an oversized fit.</p>   
                 </Col>
             </Row>
         </Container>

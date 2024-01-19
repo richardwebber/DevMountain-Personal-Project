@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import CartItem from "./CartItem.jsx";
 import { useNavigate } from "react-router-dom";
 
+
 const Cart = ({ cart }) => {
   const [uniqueCartItems, setUniqueCartItem] = useState([])
   const [totalPrice, setTotalPrice] = useState(0);

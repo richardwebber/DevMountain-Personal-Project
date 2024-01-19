@@ -14,17 +14,17 @@ const ProductCard = ({ initialProductData }) => {
   console.log('Rendering ProductCard for: ', initialProductData.name)
 
   return (
-    <Card style={{ width: '18rem', margin: 'auto' }} className='text-center'>
+    <Card className='text-center productCard-style'>
       <div>
-      <Card.Img variant='top' src={initialProductData.url} style={{ width: '100px', height: '130px'}}/>
+      <Card.Img variant='top' src={initialProductData.url} className='productCard-img'/>
       </div>
-      <Card.Body>
+      <Card.Body className='card-body-style'>
         <Card.Title>{initialProductData.name}</Card.Title>
-        <Card.Text>{initialProductData.description}</Card.Text>
-        <Card.Text>${initialProductData.price}</Card.Text>
+        <Card.Text className='card-text-description'>{initialProductData.description}</Card.Text>
+        <Card.Text className='card-text-price'>${initialProductData.price}</Card.Text>
       </Card.Body>
-      <Card.Footer>
-        <Button variant='primary' onClick={viewProduct}>View Product</Button>
+      <Card.Footer className='card-footer-style'>
+        <Button className='view-product-button' variant='secondary' onClick={viewProduct}>View Product</Button>
       </Card.Footer>
     </Card>
   );

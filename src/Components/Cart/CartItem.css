@@ -1,0 +1,17 @@
+.checkout-product-card-image {
+    height: 160px;
+}
+
+.checkout-product-card-container {
+    background-color: red;
+    padding-bottom: 5px;
+}
+
+.checkout-product-card-row {
+    background-color: rgb(208, 208, 210);
+}
+
+.remove-from-cart-button {
+    padding-top: 20px;
+}
+

@@ -3,8 +3,7 @@ import ProductCard from './ProductCard'
 import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-// import { Route, Routes, Link, useParams } from 'react-router-dom'
-// import IndividualProductPage from './IndividualProductPage.jsx'
+import './Shop2.css'
 
 
 const Shop = () => {
@@ -26,7 +25,7 @@ const Shop = () => {
     }, [])
 
     const cards = currentData.map((product) => 
-    <Col key={product.id} md={4} style={{border: 'none', padding: '10px'}}>
+    <Col key={product.id} md={4} className='shop2-col'>
       <ProductCard
         initialProductData={product}
         key={product.id}

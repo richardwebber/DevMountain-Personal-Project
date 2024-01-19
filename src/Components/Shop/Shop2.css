@@ -1,0 +1,44 @@
+.shop2-col {
+    border: none;
+    padding: 3px;
+}
+
+.productCard-style {
+    border: 4px solid rgb(59, 58, 58);
+    width: 23rem;
+    height: 672px;
+    background-color: black;
+}
+
+.productCard-img {
+    width: 100%
+}
+
+.card-text-price {
+    color: rgb(164, 233, 73);
+    position: absolute;
+    bottom: 95px;
+    right: 115px;
+    font-size: 35px;
+}
+
+.card-footer-style {
+    background-color: black;
+}
+
+.card-body-style {
+    background-color: black;
+    color: white;
+}
+
+.view-product-button {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    border-radius: white;
+}
+
+.card-text-description {
+    color: rgb(151, 151, 151);
+    font-size: small;
+}

@@ -8,9 +8,65 @@ button.selected {
     background-color: #4caf50; /* Green background */
     color: white; /* White text */
 }
-/* 
-h2 {
-    margin: auto;
-    width: 20%;
-    padding: 10px;
-} */
+
+.col-product-img {
+    width: 600px;
+    padding: 30px
+}
+
+.col-product-info {
+    padding: 30px;
+    color: white;
+}
+
+.details-style {
+    padding-top: 50px;
+    text-decoration: overline;
+    
+}
+
+.product-name {
+    padding-top: 45px;
+    
+}
+
+.product-description {
+    padding-bottom: 20px;
+    color: rgb(151, 151, 151);
+}
+
+.product-price {
+    font-size: xx-large;
+    color: rgb(164, 233, 73);
+}
+
+.size-button {
+    padding: 30px;
+}
+
+.size-buttons-div {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 30px;
+}
+
+Button {
+    width: 90px;
+}
+
+.add-to-cart-button {
+    width: 230px;
+    height: 60px;
+    font-size: x-large;
+    background-color: black;
+  
+}
+
+.item-details {
+    max-width: fit-content;
+    padding: 0px 50px 0 50px
+}
+
+.product-card-container {
+    padding-bottom: 50px;
+}
