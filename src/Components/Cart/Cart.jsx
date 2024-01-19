@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import CartItem from "./CartItem.jsx";
 import { useNavigate } from "react-router-dom";
 import './Cart.css'
+import Button from 'react-bootstrap/Button'
 
 
 const Cart = ({ cart }) => {
@@ -51,22 +52,24 @@ const Cart = ({ cart }) => {
   const quantityText = totalItems === 1 ? "item" : "items";
   return (
     <div className='cart-main-body-div'>
+      <h4 className='cart-summary-h4'>Cart Summary</h4>
       <div>
         {uniqueCartItems.map((item) => (
           <CartItem key={item.id.id + item.id.size} itemData={item}/>
         ))}
       </div>
+      <div className='cart-solid-blank-space'></div>
+      <div className='solid-white-line'></div>
       <div>
-        <h4 className='cart-summary-h4'>Cart Summary</h4>
-        <div>
-          <span>
+        <div className='cart-div-span-total'>
+          <span className='cart-span-total-items'>
             TOTAL: ({totalItems} {quantityText})
           </span>
-          <span>$ {totalPrice}</span>
+          <span className='cart-span-total-price'>$ {totalPrice}</span>
         </div>
-        <button variant="primary" onClick={viewCheckout}>
+        <Button variant="primary" className='cart-proceed-to-checkout-button' onClick={viewCheckout}>
           Proceed To Checkout
-        </button>
+        </Button>
       </div>
     </div>
   );

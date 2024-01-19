@@ -1,3 +1,54 @@
 .cart-main-body-div {
-  padding: 20px 0px 50px 0;
+  padding: 20px 0px 90px 0;
+}
+
+.cart-solid-blank-space {
+  height: 40px;
+}
+
+.cart-summary-h4 {
+  font-size: 90px;
+  color: white;
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
+
+.cart-span-total-items {
+  font-size: 40px;
+  padding-right: 100px;
+  color: white;
+}
+
+.cart-span-total-price {
+  font-size: 40px;
+  padding-left: 100px;
+  animation: rainbow 5s infinite linear;
+}
+
+.cart-proceed-to-checkout-button {
+  width: 500px;
+  font-size: xx-large;
+}
+
+.cart-div-span-total {
+  padding: 10px 0px 50px 0px;
+}
+
+
+@keyframes rainbow {
+  0% {
+    color: rgb(154, 254, 4);
+  }
+  25% {
+    color: rgb(38, 255, 0);
+  }
+  50% {
+    color: rgb(1, 255, 183);
+  }
+  75% {
+    color: rgb(1, 255, 141);
+  }
+  100% {
+    color:  rgb(154, 254, 4);
+  }
 }

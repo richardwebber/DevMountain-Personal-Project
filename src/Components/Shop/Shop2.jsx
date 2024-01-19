@@ -33,7 +33,7 @@ const Shop = () => {
     </Col>)
 
   return (
-    <Container >
+    <Container className='shop-main-body'>
       <Row >
         {cards}         
       </Row>
