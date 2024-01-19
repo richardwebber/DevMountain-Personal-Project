@@ -21,7 +21,7 @@ button.selected {
 
 .details-style {
     padding-top: 50px;
-    text-decoration: overline;
+    text-decoration: underline;
 }
 
 
@@ -76,3 +76,13 @@ Button {
   padding-bottom: 30px;
 }
 
+.mens-size-chart {
+    width: 900px;
+    padding-top: 30px;
+}
+
+.h3-sizechart-label {
+    color: white;
+    font-size: xx-large;
+    padding-top: 30px
+}

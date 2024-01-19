@@ -58,3 +58,7 @@
     padding: 40px 0 10px 0;
     bottom: 0;
 }
+
+.cart-summary-delete-button {
+    font-size: 40px;
+}

@@ -50,7 +50,7 @@ const CartItem = ({ itemData, removeFromCart, adjustQty }) => {
         </Col>
         <Row>
         <Button onClick={() => removeFromCart(itemData.id)} className="remove-from-cart-button" variant='danger'>
-          <i className="material-icons">delete</i>
+          <i className="material-icons cart-summary-delete-button">delete</i>
         </Button>
         </Row>
       </div>
