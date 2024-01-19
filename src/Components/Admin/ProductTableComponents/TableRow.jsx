@@ -52,7 +52,7 @@ const TableRow = (props) => {
     }
 
     return (
-        <tr>
+        <tr className='product-tr-row'>
             
             <ModeButton
             isEditing={editMode}

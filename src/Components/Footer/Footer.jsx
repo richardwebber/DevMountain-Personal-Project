@@ -36,7 +36,7 @@ export default function Footer()  {
                 </div>
             </div>
 
-            <div className="footer-copyright text-center py-3">© 2023 Copyright:
+            <div className="footer-copyright text-center py-3 copyright-div">© 2023 Copyright:
                 <a className='footer-link' href="https://www.linkedin.com/in/richard-webber-b1a052276/"> RAW.HOUSECOLLECTIVE</a>
             </div>
 

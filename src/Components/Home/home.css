@@ -48,3 +48,7 @@ body {
     transform: traslate(-50%, -50%);
 }
 
+.home-page-div-container {
+    padding-bottom: 80px;
+    padding-top: 20px;
+}

@@ -5,11 +5,19 @@ import Row from "react-bootstrap/Row";
 import { connect } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
+import Button from 'react-bootstrap/Button'
+import './checkOut.css'
 
 const CheckOut = ({ cart, addToDatabase }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+
+  const clearFormState = () => {
+      setFirstName('')
+      setLastName('')
+      setEmail('')
+  }
 
   const handleAllCheckOuts = async () => {
     const allCheckOutData = {
@@ -41,12 +49,14 @@ const CheckOut = ({ cart, addToDatabase }) => {
     } catch (error) {
       console.error('Error submitting order:', error)
     }
+    alert('Thank you for submitting your order!')
+    clearFormState()
   };
 
   return (
-    <Form style={{ "maxWidth": "900px", margin: "auto" }}>
+    <Form className='checkout-form' style={{ "maxWidth": "900px", margin: "auto" }}>
       <Form.Group className="mb-3" controlId="formGroupName">
-        <h1>Checkout</h1>
+        <h1 className='checkout-h1-label'>Checkout</h1>
         <Row>
           <Col style={{ border: "none" }}>
             <Form.Label>First Name</Form.Label>
@@ -81,9 +91,11 @@ const CheckOut = ({ cart, addToDatabase }) => {
           </Col>
         </Row>
       </Form.Group>
-      <button type="button" onClick={handleAllCheckOuts}>
+      <div className='checkout-page-button-div'>
+      <Button type="button" className='checkout-page-button' onClick={handleAllCheckOuts}>
         Checkout
-      </button>
+      </Button>
+      </div>
     </Form>
   );
 };

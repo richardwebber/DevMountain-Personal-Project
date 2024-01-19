@@ -22,3 +22,8 @@ div {
     color: rgb(149, 149, 149);
     text-decoration: none;
 }
+
+.copyright-div {
+    height: 20px;
+    font-size: 12px;
+}

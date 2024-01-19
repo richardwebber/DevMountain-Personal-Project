@@ -4,7 +4,7 @@ import TableHeader from './ProductTableComponents/TableHeader.jsx'
 import TableRow from './ProductTableComponents/TableRow.jsx'
 import OrdersTable from './OrderTableComponents/OrdersTable.jsx'
 import OrderHeader from './OrderTableComponents/OrderHeader.jsx'
-// import './Admin.css'
+import './Admin.css'
 
 import { useState, useEffect } from 'react'
 
@@ -86,9 +86,11 @@ const ProductTableDisplay = () => {
                     <AddButton addRow={addRow} />
                 </tfoot>
             </table>
+            <div className='productTable-div-orderTable'></div>
+            <div className='ordersTable-div'>
             <table>
                 <thead>
-                    <OrderHeader />
+                    <OrderHeader className='orderHeader-display'/>
                 </thead>
                 <tbody>
                     {ordersRow}
@@ -97,6 +99,7 @@ const ProductTableDisplay = () => {
 
                 </tfoot>
             </table>
+            </div>
         </div>
     )
 }
